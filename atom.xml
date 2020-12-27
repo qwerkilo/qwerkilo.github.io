@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://qwerkilo.github.io</id>
+    <title>qwerkilo的个人主页</title>
+    <updated>2020-12-27T15:00:37.924Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://qwerkilo.github.io"/>
+    <link rel="self" href="https://qwerkilo.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://qwerkilo.github.io/images/avatar.png</logo>
+    <icon>https://qwerkilo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, qwerkilo的个人主页</rights>
+    <entry>
+        <title type="html"><![CDATA[测试]]></title>
+        <id>https://qwerkilo.github.io/post/ce-shi/</id>
+        <link href="https://qwerkilo.github.io/post/ce-shi/">
+        </link>
+        <updated>2020-12-27T14:53:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="docker教程">Docker教程</h1>
+<p>[TOC]</p>
+<h2 id="docker概述">Docker概述</h2>
+<h3 id="docker为什么出现">Docker为什么出现？</h3>
+<p>一款产品：开发--上线 两套环境 应用环境 应用配置</p>
+<p>开发 --运维 ：环境不同的问题产生问题</p>
+<p>环境配置很麻烦（集群Redis，ES，Hadoop...)</p>
+<p>项目能不能带上环境安装打包--&gt;Docker要做的事情</p>
+<p>传统：开发jar，运维来做</p>
+<p>现在：开发打包部署上线，一套流程做完</p>
+<p>Docker给以上问题给出了解决方案。</p>
+<p>下载Docker镜像运行即可，运维不需要考虑运行环境，Docker思想来自于集装箱</p>
+<p>隔离：Docker核心思想。打包装箱，每个箱子是互相隔离的</p>
+<p>本质：所有的技术都是因为出现了一些问题我们需要去解决才出现的</p>
+<h3 id="docker能做什么">Docker能做什么</h3>
+<p>虚拟化技术：资源占用十分多，冗余步骤多，启动慢</p>
+<p>容器化技术：不是模拟的一个完整的操作系统</p>
+<ul>
+<li>传统虚拟机，虚拟出一套硬件，运行一个完整的操作系统，然后安装和运行软件</li>
+<li>容器内的应用直接运行在宿主机的内容，容器是没有自己的内核的</li>
+<li>每个容器内都有一个属于自己的文件系统</li>
+</ul>
+<blockquote>
+<p>DevOps（开发，运维）</p>
+</blockquote>
+<p><strong>更快速的交付和部署</strong></p>
+<p>传统：一堆帮助文档，安装程序</p>
+<p>Docker：打包镜像发布测试一键运行</p>
+<p><strong>更便捷的升级和扩容</strong></p>
+<p>使用Docker之后，我们部署应用就和搭积木一样</p>
+<p><strong>更简单的系统运维</strong></p>
+<p>容器化后，开发和测试环境都是高度一致的</p>
+<p><strong>更高效的计算资源利用</strong></p>
+<p>Docker是内核级别的虚拟化，可以在一个物理机上运行很多容器实例，服务器性能可以被压榨到极致</p>
+<h2 id="docker安装">Docker安装</h2>
+<h3 id="docker的基本组成">Docker的基本组成</h3>
+<p><strong>镜像（image）:</strong></p>
+<p>Docker镜像就好比一个模板，可以通过这个模板来创建容器服务，创建多个容器。</p>
+<p><strong>容器(container)：</strong></p>
+<p>通过镜像创建的，启动，停止，删除等基本命令。</p>
+<p><strong>仓库（repository)：</strong></p>
+<p>仓库就是存放镜像的地方，分公有仓库与私有仓库。</p>
+<p>Docker Hub，阿里云（配置镜像加速）</p>
+<h3 id="安装docker">安装Docker</h3>
+<p>安装过程略过</p>
+<pre><code class="language-shell">#查看当前系统版本
+[root@localhost ~]# cat /etc/os-release
+NAME=&quot;CentOS Linux&quot;
+VERSION=&quot;8&quot;
+ID=&quot;centos&quot;
+ID_LIKE=&quot;rhel fedora&quot;
+VERSION_ID=&quot;8&quot;
+PLATFORM_ID=&quot;platform:el8&quot;
+PRETTY_NAME=&quot;CentOS Linux 8&quot;
+ANSI_COLOR=&quot;0;31&quot;
+CPE_NAME=&quot;cpe:/o:centos:centos:8&quot;
+HOME_URL=&quot;https://centos.org/&quot;
+BUG_REPORT_URL=&quot;https://bugs.centos.org/&quot;
+CENTOS_MANTISBT_PROJECT=&quot;CentOS-8&quot;
+CENTOS_MANTISBT_PROJECT_VERSION=&quot;8&quot;
+</code></pre>
+<pre><code class="language-shell">#查看当前docker版本
+[root@localhost ~]# docker version
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+Version:      2.0.5
+API Version:  1
+Go Version:   go1.14.7
+Built:        Thu Sep 24 13:58:13 2020
+OS/Arch:      linux/amd64
+</code></pre>
+<pre><code class="language-shell">#运行hello-world镜像
+[root@localhost ~]# docker run hello-world
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+Trying to pull registry.access.redhat.com/hello-world...
+  name unknown: Repo not found
+Trying to pull registry.redhat.io/hello-world...
+  unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials. Further instructions can be found here: https://access.redhat.com/RegistryAuthentication
+Trying to pull docker.io/library/hello-world...
+Getting image source signatures
+Copying blob 0e03bdcc26d7 done
+Copying config bf756fb1ae done
+Writing manifest to image destination
+Storing signatures
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+</code></pre>
+<pre><code class="language-shell">#查看当前仓库的镜像
+[root@localhost ~]# docker images
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+REPOSITORY                     TAG     IMAGE ID      CREATED        SIZE
+docker.io/library/hello-world  latest  bf756fb1ae65  11 months ago  20 kB
+</code></pre>
+<h3 id="回顾hello-world的过程">回顾hello world的过程</h3>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223450.png" alt="image-20201227212403146" loading="lazy"></figure>
+<ol>
+<li>开始run</li>
+<li>在本机寻找镜像</li>
+<li>判断本机是否有这个镜像
+<ul>
+<li>有，用本机的</li>
+<li>没有，去Docker Hub上下载
+<ul>
+<li>找到镜像，下载镜像到本地</li>
+<li>找不到，回错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>运行</li>
+</ol>
+<h3 id="底层原理">底层原理</h3>
+<p><strong>Docker是如何工作的？</strong></p>
+<p>Docker是一个Client-Server结构的系统，Docker的守护进程运行在主机上。通过Socket从客户端访问。DockerServer接收到Docker-Client的指令，就会执行这个命令。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223543.png" alt="image-20201227211300908" loading="lazy"></figure>
+<p><strong>Docker为什么比VM快？</strong></p>
+<ol>
+<li>Docker有着比虚拟机更少的抽象层。</li>
+<li>Docker利用的是宿主机的内核，VM需要Guest OS。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223623.png" alt="image-20201227211436505" loading="lazy"></figure>
+<blockquote>
+<p>所以说，新建一个容器的时候，Docker不需要像虚拟机一样重新加载一个操作系统的内核，避免引导。虚拟机是加载Guest OS，分钟级别的，而Docker是利用宿主机的操作系统，省略的这个复杂的过程，它是一个秒级的。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Docker容器</th>
+<th>LXC</th>
+<th>VM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>虚拟化类型</td>
+<td>OS虚拟化</td>
+<td>OS虚拟化</td>
+<td>硬件虚拟化</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>=物理机性能</td>
+<td>=物理机性能</td>
+<td>5%-20%损耗</td>
+</tr>
+<tr>
+<td>隔离性</td>
+<td>NS隔离</td>
+<td>NS隔离</td>
+<td>强</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>Cgroup弱</td>
+<td>Cgroup弱</td>
+<td>强</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>中</td>
+<td>差</td>
+<td>强</td>
+</tr>
+<tr>
+<td>GuestOS</td>
+<td>只支持Linux</td>
+<td>只支持Linux</td>
+<td>全部</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>强</td>
+<td>弱</td>
+<td>强</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+</feed>

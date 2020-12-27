@@ -1,0 +1,847 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="Docker教程
+[TOC]
+Docker概述
+Docker为什么出现？
+一款产品：开发--上线 两套环境 应用环境 应用配置
+开发 --运维 ：环境不同的问题产生问题
+环境配置很麻烦（集群Redis，ES，Hadoop...)
+项目能不能..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://qwerkilo.github.io/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://qwerkilo.github.io/styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/dracula.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <title>qwerkilo的个人主页</title>
+    
+    <style>
+        .markdownIt-TOC {
+            padding-left: 2px;
+            width: 100%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 2%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="codeCopyText" style="display: none"></div>
+    <div id="domainname" style="display:none">https://qwerkilo.github.io</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width:768px){
+    .mbapspan{
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+          aria-expanded="false" id="barbutton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://qwerkilo.github.io">qwerkilo的个人主页&nbsp;&nbsp;|</a>
+        <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+            style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="barmenu">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+  var btstate = false;
+  var bt = $("#barbutton");
+  var bm = $("#barmenu");
+  bt.click(function(){
+    dropdown();
+  })
+  function dropdown(){
+    console.log(btstate);
+    //下拉
+    if(btstate==false){
+      bt.removeClass("collapsed");
+      bt.attr("aria-expanded","true");
+      bm.attr("aria-expanded","true")
+      bm.fadeIn(700);
+      btstate = true;
+    }
+    else{
+      bt.addClass("collapsed");
+      bt.attr("aria-expanded","false");
+      bm.removeClass("in");
+      bm.hide();
+      bm.attr("aria-expanded","false");
+      btstate = false;
+    }
+  }
+  </script> 
+</body>
+            </div>
+            <div class="row">
+                <div class="side"><body>
+    
+
+
+
+    
+</body>
+<script>
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script>
+</div>
+                
+            <div class="col-md-2 col-lg-3"></div>
+            <div id="postmain" class="col-xs-12 col-sm-12 col-md-8  col-lg-6 posttop" >
+                <link rel="stylesheet" href="https://qwerkilo.github.io/media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;">
+                
+                <img src="" class="postimage">
+                
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-12-27</div>
+            <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
+            <div class="posttag">
+                
+            </div>
+        </div>
+        
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2>测试</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://qwerkilo.github.io/post/ce-shi/</div>
+                <div id="rootaddr" style="display:none">https://qwerkilo.github.io</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <h1 id="docker教程">Docker教程</h1>
+<p>[TOC]</p>
+<h2 id="docker概述">Docker概述</h2>
+<h3 id="docker为什么出现">Docker为什么出现？</h3>
+<p>一款产品：开发--上线 两套环境 应用环境 应用配置</p>
+<p>开发 --运维 ：环境不同的问题产生问题</p>
+<p>环境配置很麻烦（集群Redis，ES，Hadoop...)</p>
+<p>项目能不能带上环境安装打包--&gt;Docker要做的事情</p>
+<p>传统：开发jar，运维来做</p>
+<p>现在：开发打包部署上线，一套流程做完</p>
+<p>Docker给以上问题给出了解决方案。</p>
+<p>下载Docker镜像运行即可，运维不需要考虑运行环境，Docker思想来自于集装箱</p>
+<p>隔离：Docker核心思想。打包装箱，每个箱子是互相隔离的</p>
+<p>本质：所有的技术都是因为出现了一些问题我们需要去解决才出现的</p>
+<h3 id="docker能做什么">Docker能做什么</h3>
+<p>虚拟化技术：资源占用十分多，冗余步骤多，启动慢</p>
+<p>容器化技术：不是模拟的一个完整的操作系统</p>
+<ul>
+<li>传统虚拟机，虚拟出一套硬件，运行一个完整的操作系统，然后安装和运行软件</li>
+<li>容器内的应用直接运行在宿主机的内容，容器是没有自己的内核的</li>
+<li>每个容器内都有一个属于自己的文件系统</li>
+</ul>
+<blockquote>
+<p>DevOps（开发，运维）</p>
+</blockquote>
+<p><strong>更快速的交付和部署</strong></p>
+<p>传统：一堆帮助文档，安装程序</p>
+<p>Docker：打包镜像发布测试一键运行</p>
+<p><strong>更便捷的升级和扩容</strong></p>
+<p>使用Docker之后，我们部署应用就和搭积木一样</p>
+<p><strong>更简单的系统运维</strong></p>
+<p>容器化后，开发和测试环境都是高度一致的</p>
+<p><strong>更高效的计算资源利用</strong></p>
+<p>Docker是内核级别的虚拟化，可以在一个物理机上运行很多容器实例，服务器性能可以被压榨到极致</p>
+<h2 id="docker安装">Docker安装</h2>
+<h3 id="docker的基本组成">Docker的基本组成</h3>
+<p><strong>镜像（image）:</strong></p>
+<p>Docker镜像就好比一个模板，可以通过这个模板来创建容器服务，创建多个容器。</p>
+<p><strong>容器(container)：</strong></p>
+<p>通过镜像创建的，启动，停止，删除等基本命令。</p>
+<p><strong>仓库（repository)：</strong></p>
+<p>仓库就是存放镜像的地方，分公有仓库与私有仓库。</p>
+<p>Docker Hub，阿里云（配置镜像加速）</p>
+<h3 id="安装docker">安装Docker</h3>
+<p>安装过程略过</p>
+<pre><code class="language-shell">#查看当前系统版本
+[root@localhost ~]# cat /etc/os-release
+NAME=&quot;CentOS Linux&quot;
+VERSION=&quot;8&quot;
+ID=&quot;centos&quot;
+ID_LIKE=&quot;rhel fedora&quot;
+VERSION_ID=&quot;8&quot;
+PLATFORM_ID=&quot;platform:el8&quot;
+PRETTY_NAME=&quot;CentOS Linux 8&quot;
+ANSI_COLOR=&quot;0;31&quot;
+CPE_NAME=&quot;cpe:/o:centos:centos:8&quot;
+HOME_URL=&quot;https://centos.org/&quot;
+BUG_REPORT_URL=&quot;https://bugs.centos.org/&quot;
+CENTOS_MANTISBT_PROJECT=&quot;CentOS-8&quot;
+CENTOS_MANTISBT_PROJECT_VERSION=&quot;8&quot;
+</code></pre>
+<pre><code class="language-shell">#查看当前docker版本
+[root@localhost ~]# docker version
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+Version:      2.0.5
+API Version:  1
+Go Version:   go1.14.7
+Built:        Thu Sep 24 13:58:13 2020
+OS/Arch:      linux/amd64
+</code></pre>
+<pre><code class="language-shell">#运行hello-world镜像
+[root@localhost ~]# docker run hello-world
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+Trying to pull registry.access.redhat.com/hello-world...
+  name unknown: Repo not found
+Trying to pull registry.redhat.io/hello-world...
+  unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials. Further instructions can be found here: https://access.redhat.com/RegistryAuthentication
+Trying to pull docker.io/library/hello-world...
+Getting image source signatures
+Copying blob 0e03bdcc26d7 done
+Copying config bf756fb1ae done
+Writing manifest to image destination
+Storing signatures
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+</code></pre>
+<pre><code class="language-shell">#查看当前仓库的镜像
+[root@localhost ~]# docker images
+Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+REPOSITORY                     TAG     IMAGE ID      CREATED        SIZE
+docker.io/library/hello-world  latest  bf756fb1ae65  11 months ago  20 kB
+</code></pre>
+<h3 id="回顾hello-world的过程">回顾hello world的过程</h3>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223450.png" alt="image-20201227212403146" loading="lazy"></figure>
+<ol>
+<li>开始run</li>
+<li>在本机寻找镜像</li>
+<li>判断本机是否有这个镜像
+<ul>
+<li>有，用本机的</li>
+<li>没有，去Docker Hub上下载
+<ul>
+<li>找到镜像，下载镜像到本地</li>
+<li>找不到，回错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>运行</li>
+</ol>
+<h3 id="底层原理">底层原理</h3>
+<p><strong>Docker是如何工作的？</strong></p>
+<p>Docker是一个Client-Server结构的系统，Docker的守护进程运行在主机上。通过Socket从客户端访问。DockerServer接收到Docker-Client的指令，就会执行这个命令。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223543.png" alt="image-20201227211300908" loading="lazy"></figure>
+<p><strong>Docker为什么比VM快？</strong></p>
+<ol>
+<li>Docker有着比虚拟机更少的抽象层。</li>
+<li>Docker利用的是宿主机的内核，VM需要Guest OS。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/20201227223623.png" alt="image-20201227211436505" loading="lazy"></figure>
+<blockquote>
+<p>所以说，新建一个容器的时候，Docker不需要像虚拟机一样重新加载一个操作系统的内核，避免引导。虚拟机是加载Guest OS，分钟级别的，而Docker是利用宿主机的操作系统，省略的这个复杂的过程，它是一个秒级的。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Docker容器</th>
+<th>LXC</th>
+<th>VM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>虚拟化类型</td>
+<td>OS虚拟化</td>
+<td>OS虚拟化</td>
+<td>硬件虚拟化</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>=物理机性能</td>
+<td>=物理机性能</td>
+<td>5%-20%损耗</td>
+</tr>
+<tr>
+<td>隔离性</td>
+<td>NS隔离</td>
+<td>NS隔离</td>
+<td>强</td>
+</tr>
+<tr>
+<td>QoS</td>
+<td>Cgroup弱</td>
+<td>Cgroup弱</td>
+<td>强</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>中</td>
+<td>差</td>
+<td>强</td>
+</tr>
+<tr>
+<td>GuestOS</td>
+<td>只支持Linux</td>
+<td>只支持Linux</td>
+<td>全部</td>
+</tr>
+<tr>
+<td>可迁移性</td>
+<td>强</td>
+<td>弱</td>
+<td>强</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong></li>
+            <li><strong>原文链接：</strong>https://qwerkilo.github.io/post/ce-shi/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                <div id="comment" class="comment" style="background: white">
+                    <div class="commentcontainer">
+                        
+                        <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-3">
+            </div>
+            <div id="bg">
+            </div>
+        </div>
+        
+        
+        <div class="toc-container">
+            <ul class="markdownIt-TOC">
+<li><a href="#docker%E6%95%99%E7%A8%8B">Docker教程</a>
+<ul>
+<li><a href="#docker%E6%A6%82%E8%BF%B0">Docker概述</a>
+<ul>
+<li><a href="#docker%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E7%8E%B0">Docker为什么出现？</a></li>
+<li><a href="#docker%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88">Docker能做什么</a></li>
+</ul>
+</li>
+<li><a href="#docker%E5%AE%89%E8%A3%85">Docker安装</a>
+<ul>
+<li><a href="#docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90">Docker的基本组成</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85docker">安装Docker</a></li>
+<li><a href="#%E5%9B%9E%E9%A1%BEhello-world%E7%9A%84%E8%BF%87%E7%A8%8B">回顾hello world的过程</a></li>
+<li><a href="#%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86">底层原理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="tog">
+        <div class="toggleContainer">
+            <div class="toggle">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+    </div>
+    <div id="bgchoice" style="display: none"></div>
+    
+    <div id="bgurl" style="display:none"></div>
+    
+    </div>
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    var codeCopyText = $("#codeCopyText").html();
+    cop.on('success', function (e) {
+        alert(codeCopyText);
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        alert("矮油，复制失败了...手动复制吧勇士！");
+        e.clearSelection();
+    });
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://qwerkilo.github.io/media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+    
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if(!sharebtnTag)
+        {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else
+        {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if(!donatebtnTag)
+        {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else{
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload=function(){
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+    });
+</script>
+
+<!-- <script src="https://qwerkilo.github.io/media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = $("#pl").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+
+        var appid = '';
+        var appkey = '';
+        console.log(appid, appkey)
+        if(AV==undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: "测试",
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>
