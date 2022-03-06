@@ -78,7 +78,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1646554176890"
+            <form id="gridea-search-form" style="position: relative" data-update="1646554809722"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -128,7 +128,7 @@
         
         <li class="nav-item">
           <div class="gridea-search-container">
-            <form id="gridea-search-form" style="position: relative" data-update="1646554176890"
+            <form id="gridea-search-form" style="position: relative" data-update="1646554809722"
               action="/search/index.html">
               <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
               <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
@@ -207,14 +207,14 @@
 –chain_partition pm_sys:9:keys/key_pm_sys.bin \
 –output vbmeta_my.img
 </code></pre>
-<p>其中你要修改的boot.img最后签名跟里面的x_key.bin是对应的。关于bin文件的生成命令如下，如果使用我提供的可以跳过</p>
+<p>其中你要修改的boot.img最后签名跟里面的x_key.bin是对应的。关于bin文件的生成命令如下，如果使用我提供的可以跳过：</p>
 <pre><code>python avbtool extract_public_key --key hovatek.pem --output keys/hovatek.bin
 </code></pre>
 <p>其中hovatek.pem为证书文件，你可以替换成你自己的，证书生成自行查阅资料，我用的默认<strong>rsa4096_vbmeta.pem</strong></p>
 <p>紫光这soc要求vbmeta和boot要用的一样的证书才能过验证，所以很麻烦。</p>
 <p>到这里为止vbmeta就搞定了，这次生成的vbmeta你可以一直以后都用下去。只要以后每次boot签名的证书和你生成vbmeta用的证书一样的就可以了。</p>
 <h2 id="用magisk修补boot">用magisk修补boot</h2>
-<p>这里应该可以跳过，用我提供的原版boot.img丢到已经root的设备上用magisk修补boot就行可，一般会生成一个新的修补好的boot.img</p>
+<p>这里应该可以跳过，用我提供的原版boot.img丢到已经root的设备上用magisk修补boot就行可，一般会生成一个新的修补好的boot.img。</p>
 <h2 id="签名修补好的boot">签名修补好的boot</h2>
 <p>使用上面生成vbmeta时候用的证书来生成boot，先把magisk修补后生成的文件丢进linux，然后执行以下命令：</p>
 <pre><code>python avbtool add_hash_footer --image magisk_patched-23016_BohEx.img --partition_name boot --partition_size 36700160 --key rsa4096_vbmeta.pem --algorithm SHA256_RSA4096
