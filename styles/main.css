@@ -2195,11 +2195,14 @@ p > code {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * GitHub https://github.com/liangjingkanji/DrakeTyporaTheme
  */
 @import url(./drake/font.css);
+@include-when-export url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas; /*code font*/
+    --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", Menlo, "Ubuntu Mono", Consolas; /*code font*/
     --text-font: var(--monospace); /*default font*/
     --title-font: var(--monospace); /*title font*/
 
@@ -2218,8 +2221,8 @@ p > code {
     --a-color: var(--drake-highlight);
     --variable-color: var(--drake-highlight);
     --outline-active-color: var(--a-color);
-    --code-block-bg-color: #2b2b2b;
-    --code-block-color: #A9B7C6;
+    --code-block-bg-color: #f6f8fa;
+    --code-block-color: #24292e;
     --title-color: #273849;
     --blockquote-border-color: var(--drake-accent);
     --blockquote-color: var(--text-color);
@@ -2256,7 +2259,6 @@ body {
     letter-spacing: 0;
     margin: 0;
     overflow-x: hidden;
-    line-height: 1.8rem;
 }
 
 /*code block*/
@@ -2269,13 +2271,14 @@ body {
     color: var(--code-block-color);
     border: none;
 }
-.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) *,
-.on-focus-mode .md-fences.md-focus .CodeMirror-code > :not(.CodeMirror-activeline) *,
-.on-focus-mode .md-htmlblock.md-focus .CodeMirror-code > :not(.CodeMirror-activeline) * {
-    color: #909090 !important
-}
 
 /*mermaid*/
+[id^=mermaidChart] {
+    fill: var(--text-color) !important;
+}
+[id^=mermaidChart] rect.rect {
+    fill: rgba(175, 255, 212, 0.3) !important;
+}
 .md-diagram-panel-preview text.actor > tspan { /*方块文字*/
     fill: var(--code-block-color) !important;
     stroke: none !important;
@@ -2306,7 +2309,7 @@ body {
     font-size: 1rem !important;
 }
 .md-diagram-panel-preview .activation0 { /*长方形*/
-    fill: rgba(141, 141, 141, 0.22) !important;
+    fill: #e6e6e6 !important;
     stroke: var(--text-color) !important;
 }
 .md-diagram-panel-preview .labelText, .md-diagram-panel-preview .labelText > tspan { /*循环标记*/
@@ -2430,6 +2433,9 @@ blockquote {
     color: var(--a-color);
     text-decoration: none;
 }
+#write h2 a .md-plain {
+    border-bottom: .2rem solid var(--a-color);
+}
 .on-focus-mode #write a .md-plain, .on-focus-mode .md-htmlblock-container a:hover {
     border-bottom: .1rem solid var(--blur-text-color);
 }
@@ -2460,10 +2466,6 @@ img {
     max-width: 1200px;
 }
 
-#write p {
-    word-spacing: .05rem;
-}
-
 #write > ul:first-child,
 #write > ol:first-child {
     margin-top: 30px;
@@ -2488,6 +2490,7 @@ h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
+    line-height: 1.4;
     cursor: text;
     color: var(--title-color);
 }
@@ -2502,19 +2505,12 @@ h1 {
     margin-top: 0;
 }
 
-h2.md-end-block.md-heading {
-    font-size: 1.6rem;
-    display: inline-block;
+h2 .md-plain {
+    padding-bottom: .3rem;
+    border-bottom: .2rem solid var(--h2-underline-color);
+    line-height: 3rem;
 }
 
-h2.md-end-block.md-heading:after {
-    display: block;
-    content: '';
-    height: 2px;
-    margin-top: 4px;
-    background-color: var(--h2-underline-color);
-    border-radius: 2px;
-}
 .on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
     background-color: var(--blur-text-color) !important;
 }
@@ -2574,15 +2570,13 @@ h6 code {
     font-size: inherit !important;
 }
 
+p,
 blockquote,
 ul,
 ol,
 dl,
 table {
     margin: 0.8em 0;
-}
-p {
-    margin: 0;
 }
 
 li > ol,
@@ -2701,6 +2695,10 @@ table tr td:last-child {
     padding: 0 5px 0 2px;
 }
 
+#write table thead th {
+    background-color: var(--table-header-bg-color);
+}
+
 /* height light */
 #write mark {
     border: .1em solid var(--height-light-border-color);
@@ -2718,6 +2716,7 @@ kbd {
     background: transparent;
     color: var(--text-color);
     margin: 0 .4rem;
+    font-family: var(--text-font) !important;
     font-size: .95rem;
     padding: .3em .4em;
     border-radius: .4em;
@@ -2752,6 +2751,7 @@ kbd {
 #write pre.md-meta-block {
     padding: 1rem;
     font-size: 1rem;
+    line-height: 1.45;
     background-color: var(--yaml-bg-color);
     border: 0;
     border-radius: 2px;
@@ -2913,9 +2913,20 @@ footer {
 .file-node-content:hover .file-node-open-state {
     visibility: visible;
 }
+.file-node-content {
+    display: flex;
+    align-items: center;
+}
+.file-node-open-state {
+    margin-right: .5rem;
+}
+.file-node-icon{
+    margin-right: .5rem;
+}
 
 #typora-sidebar {
-    font-size: 1.1rem;
+    font-size: inherit;
+    font-family: var(--title-font);
 }
 
 .sidebar-tabs {
@@ -3198,155 +3209,77 @@ a.ty-link {
 
 /**
     code render
-    Name: IntelliJ IDEA darcula theme
+    Name: IntelliJ IDEA light theme
     From IntelliJ IDEA by JetBrains
  */
 .cm-s-inner.CodeMirror {
-    background: var(--code-block-bg-color);
+    background: none;
     color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-meta {
-    color: #BBB529;
-}
-
 .cm-s-inner span.cm-number {
-    color: #6897BB;
+    color: #4A86E8;
 }
-
-.cm-s-inner span.cm-keyword {
-    color: #CC7832;
+.cm-s-inner span.cm-atom {
+    color: #9E880D;
 }
-
 .cm-s-inner span.cm-def {
-    color: #FFD760;
+    color: #00f;
 }
-
 .cm-s-inner span.cm-variable {
     color: var(--code-block-color);
 }
-
 .cm-s-inner span.cm-variable-2 {
+    color: #00627A;
+}
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+    color: #00627A;
+}
+.cm-s-inner span.cm-property {
     color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-variable-3 {
-    color: #9876AA;
+.cm-s-inner span.cm-keyword {
+    color: #708;
 }
-
-.cm-s-inner span.cm-type {
-    color: #AABBCC;
-}
-
-.cm-s-inner span.cm-property {
-    color: #FFC66D;
-}
-
 .cm-s-inner span.cm-operator {
     color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-string {
-    color: #6A8759;
-}
-
-.cm-s-inner span.cm-string-2 {
-    color: #6A8759;
-}
-
 .cm-s-inner span.cm-comment {
     color: #787878;
 }
-
-.cm-s-inner span.cm-link {
-    color: #CC7832;
+.cm-s-inner span.cm-string {
+    color: #008000;
 }
-
-.cm-s-inner span.cm-atom {
-    color: #CC7832;
+.cm-s-inner span.cm-string-2 {
+    color: #008000;
 }
-
-.cm-s-inner span.cm-error {
-    color: #BC3F3C;
-}
-
-.cm-s-inner span.cm-tag {
-    color: #E8BF6A;
-}
-
-.cm-s-inner span.cm-quote {
-    color: #a6e22e;
-}
-
-.cm-s-inner span.cm-attribute {
-    color: #9876AA;
-}
-
 .cm-s-inner span.cm-qualifier {
-    color: #6A8759;
+    color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-bracket {
-    color: #E8BF6A;
+.cm-s-inner span.cm-error {
+    color: red;
 }
-
+.cm-s-inner span.cm-attribute {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-tag {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-link {
+    color: #4A86E8;
+}
 .cm-s-inner span.cm-builtin {
-    color: #FF9E59;
+    color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-special {
-    color: #FF9E59;
+.cm-s-inner span.cm-bracket {
+    color: var(--code-block-color);
 }
-
-.cm-s-inner span.cm-matchhighlight {
-    color: #FFFFFF;
-    background-color: rgba(50, 89, 48, .7);
-    font-weight: normal;
-}
-
-.cm-s-inner span.cm-searching {
-    color: #FFFFFF;
-    background-color: rgba(61, 115, 59, .7);
-    font-weight: normal;
-}
-
 .cm-s-inner .CodeMirror-gutters {
     border-right: 1px solid rgba(120, 120, 120, 0.3);
 }
-
 .cm-s-inner .CodeMirror-linenumber {
-    color: #585b5d;
-}
-
-.cm-s-inner .CodeMirror-matchingbracket {
-    background-color: #3B514D;
-    color: #FFEF28 !important;
-}
-
-.cm-s-inner .CodeMirror-selected {
-    background: #214283 !important;
-}
-
-.cm-s-inner .CodeMirror-selectedtext {
-    background: #214283 !important;
-}
-
-.cm-s-typora-default .CodeMirror-selectedtext {
-    background: var(--select-text-bg-color) !important;
-}
-
-.cm-overlay.CodeMirror-selectedtext {
-    background: var(--select-text-bg-color) !important;
-}
-
-.cm-s-inner div.CodeMirror-cursor {
-    border-left: 1px solid var(--code-block-color);
-}.bg-img img {
-        filter: blur(0px)
-      }.box-scale > #landlord {
+    color: #787878;
+}.box-scale > #landlord {
       transform: scale(1);
-    }.box-shadow-wrapper {
-      box-shadow: none !important;
     }body {
       cursor: default;
     }a {
