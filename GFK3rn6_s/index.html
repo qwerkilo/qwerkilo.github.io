@@ -8,8 +8,8 @@
 <meta name="keywords" content="辣鸡萝莉糖">
 <meta name="description" content="个站，随便分享">
 <meta name="theme-color" content="#000">
-<title>关于从utools转用巨硬家powertoys这件事 | 辣鸡萝莉糖</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1646661132015">
+<title>总之就是累 | 辣鸡萝莉糖</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1646660548089">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -44,7 +44,7 @@
 
 
 
-  <meta name="description" content="关于从utools转用巨硬家powertoys这件事" />
+  <meta name="description" content="总之就是累" />
   <meta name="keywords" content="" />
 </head>
 
@@ -178,8 +178,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -196,7 +195,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -224,195 +223,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#powetoys">powetoys</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -500,14 +310,14 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://qwerkilo.github.io/b16MJeQYf/"> 关于从utools转用巨硬家powertoys这件事 </a>
+    <a class="post-title-link" href="https://qwerkilo.github.io/GFK3rn6_s/"> 总之就是累 </a>
   </h1>
   <div class="post-meta">
     
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2022-03-06 22:50:12">2022-03-06</span>
+      <span class="publish-time" data-t="2022-03-07 21:38:44">2022-03-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -523,15 +333,15 @@
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
       <span
-        >153<span class="pc-show language" data-lan="words"
+        >8<span class="pc-show language" data-lan="words"
           >字数</span
         ></span
       >
     </span>
       
     <span
-      id="/b16MJeQYf/"
-      data-flag-title="关于从utools转用巨硬家powertoys这件事"
+      id="/GFK3rn6_s/"
+      data-flag-title="总之就是累"
       class="meta-item pc-show leancloud_visitors"
     >
       <span class="post-meta-divider">|</span>
@@ -547,18 +357,7 @@
 </section>
 
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>utools用顺手了无敌方便，但是前几天我发现它的资源占用有亿丢丢大，所以开始寻找替代方案。</p>
-</blockquote>
-<h2 id="powetoys">powetoys</h2>
-<p>阿三入侵巨硬后我就对巨硬一直没啥好感，抱着试一试的心态用了下pt，发现还是挺好用的，我们来康康：</p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062242782.png" alt="主界面" loading="lazy"></figure>
-<p>首先，ptr的快捷键就和utools肥肠相同（手动斜眼）</p>
-<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062244131.png" alt="ptr快捷键" loading="lazy"></figure>
-<p>旧版的ptr还可以和everything配合，占用也很低，简直无敌：</p>
-<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062246220.png" alt="资源占用" loading="lazy"></figure>
-<p>目前配合Ditto，quicklook我感觉也顺手得很，在用一段时间观望蛤！</p>
-<p>链接：<a href="https://github.com/microsoft/PowerToys">microsoft/PowerToys: Windows system utilities to maximize productivity (github.com)</a></p>
+              <p>不折腾hugo了，懒狗惹😅</p>
 
             </div>
             
@@ -571,7 +370,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://qwerkilo.github.io/b16MJeQYf/" title="关于从utools转用巨硬家powertoys这件事">https://qwerkilo.github.io/b16MJeQYf/</a>
+      <a href="https://qwerkilo.github.io/GFK3rn6_s/" title="总之就是累">https://qwerkilo.github.io/GFK3rn6_s/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -584,15 +383,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="MPC-BE+LAV+MPC VR" href="https://qwerkilo.github.io/qjvLfA6wL/">MPC-BE+LAV+MPC VR</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="MPC-BE+LAV+MPC VR" href="https://qwerkilo.github.io/qjvLfA6wL/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="关于gridea同步经常出问题的解决方法" href="https://qwerkilo.github.io/a_noWS7ia/">关于gridea同步经常出问题的解决方法</a>
-        <a class="nav-mobile-next" title="关于gridea同步经常出问题的解决方法" href="https://qwerkilo.github.io/a_noWS7ia/">下一篇</a>
+        <a class="nav-pc-next" title="MPC-BE+LAV+MPC VR" href="https://qwerkilo.github.io/qjvLfA6wL/">MPC-BE+LAV+MPC VR</a>
+        <a class="nav-mobile-next" title="MPC-BE+LAV+MPC VR" href="https://qwerkilo.github.io/qjvLfA6wL/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
@@ -1674,6 +1469,12 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qwerkilo.github.io/GFK3rn6_s/"" data-c="
+          &lt;p&gt;不折腾hugo了，懒狗惹😅&lt;/p&gt;
+">总之就是累</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qwerkilo.github.io/qjvLfA6wL/"" data-c="
