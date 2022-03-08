@@ -1,0 +1,144 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>辣鸡萝莉糖</title>
+    <link>https://qwerkilo.github.io/</link>
+    <description>Recent content on 辣鸡萝莉糖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>没有版权，个人随写</copyright>
+    <lastBuildDate>Mon, 07 Mar 2022 10:35:09 +0000</lastBuildDate>
+    
+        <atom:link href="https://qwerkilo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>MPC-BE&#43;LAV&#43;MPC VR</title>
+        <link>https://qwerkilo.github.io/posts/qjvlfa6wl/</link>
+        <pubDate>Mon, 07 Mar 2022 10:35:09 +0000</pubDate>
+        
+        <guid>https://qwerkilo.github.io/posts/qjvlfa6wl/</guid>
+        <description>辣鸡萝莉糖 https://qwerkilo.github.io/posts/qjvlfa6wl/ -&lt;blockquote&gt;
+&lt;p&gt;笑出自信，笑出强大。全套开源，牛逼画质。为什么不用potplayer？你懂的。为什么不用madvr？1050ti啃不动mad，靴靴。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;mpc-be&#34;&gt;MPC-BE&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;download link
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.free-codecs.com/mpc-be_download.htm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lav&#34;&gt;LAV&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;download link
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.free-codecs.com/download/lav_filters.htm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mpc-vr&#34;&gt;MPC VR&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;download link
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.free-codecs.com/download/mpc_video_renderer.htm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/image-20220307103312101.png&#34; alt=&#34;image-20220307103312101&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/image-20220307103422227.png&#34; alt=&#34;image-20220307103422227&#34;&gt;&lt;/p&gt;
+- https://qwerkilo.github.io/posts/qjvlfa6wl/ - 没有版权，个人随写</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>关于从utools转用巨硬家powertoys这件事</title>
+        <link>https://qwerkilo.github.io/posts/b16mjeqyf/</link>
+        <pubDate>Sun, 06 Mar 2022 22:50:12 +0000</pubDate>
+        
+        <guid>https://qwerkilo.github.io/posts/b16mjeqyf/</guid>
+        <description>辣鸡萝莉糖 https://qwerkilo.github.io/posts/b16mjeqyf/ -&lt;blockquote&gt;
+&lt;p&gt;utools用顺手了无敌方便，但是前几天我发现它的资源占用有亿丢丢大，所以开始寻找替代方案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;powetoys&#34;&gt;powetoys&lt;/h2&gt;
+&lt;p&gt;阿三入侵巨硬后我就对巨硬一直没啥好感，抱着试一试的心态用了下pt，发现还是挺好用的，我们来康康：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062242782.png&#34; alt=&#34;主界面&#34;&gt;&lt;/p&gt;
+&lt;p&gt;首先，ptr的快捷键就和utools肥肠相同（手动斜眼）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062244131.png&#34; alt=&#34;ptr快捷键&#34;&gt;&lt;/p&gt;
+&lt;p&gt;旧版的ptr还可以和everything配合，占用也很低，简直无敌：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203062246220.png&#34; alt=&#34;资源占用&#34;&gt;&lt;/p&gt;
+&lt;p&gt;目前配合Ditto，quicklook我感觉也顺手得很，在用一段时间观望蛤！&lt;/p&gt;
+&lt;p&gt;链接：&lt;a href=&#34;https://github.com/microsoft/PowerToys&#34;&gt;microsoft/PowerToys: Windows system utilities to maximize productivity (github.com)&lt;/a&gt;&lt;/p&gt;
+- https://qwerkilo.github.io/posts/b16mjeqyf/ - 没有版权，个人随写</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>关于gridea同步经常出问题的解决方法</title>
+        <link>https://qwerkilo.github.io/posts/a_nows7ia/</link>
+        <pubDate>Sun, 06 Mar 2022 19:33:28 +0000</pubDate>
+        
+        <guid>https://qwerkilo.github.io/posts/a_nows7ia/</guid>
+        <description>辣鸡萝莉糖 https://qwerkilo.github.io/posts/a_nows7ia/ -&lt;blockquote&gt;
+&lt;p&gt;找到output文件夹 git push过去&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;站点源文件这个文件夹记得同步到云盘或者其他什么地方，可以在gridea方便异地读取。&lt;/p&gt;
+&lt;p&gt;封面来自&lt;a href=&#34;https://twitter.com/marie_0627&#34;&gt;某40岁偶像&lt;/a&gt;🤓&lt;/p&gt;
+&lt;p&gt;git搭配SourceTree可方便push噜，烫染，GitHub Desktop是坠吼的。&lt;/p&gt;
+&lt;p&gt;教程在此
+&lt;a href=&#34;https://www.bilibili.com/video/BV13W411U7HY&#34;&gt;https://www.bilibili.com/video/BV13W411U7HY&lt;/a&gt;&lt;/p&gt;
+- https://qwerkilo.github.io/posts/a_nows7ia/ - 没有版权，个人随写</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>iplay20 magisk 修补boot制作教程</title>
+        <link>https://qwerkilo.github.io/posts/najf7wvv8/</link>
+        <pubDate>Sun, 06 Mar 2022 15:29:26 +0000</pubDate>
+        
+        <guid>https://qwerkilo.github.io/posts/najf7wvv8/</guid>
+        <description>辣鸡萝莉糖 https://qwerkilo.github.io/posts/najf7wvv8/ -&lt;p&gt;本文参考了h论坛上的&lt;a href=&#34;https://forum.hovatek.com/thread-32664.html&#34;&gt;帖子&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;必要工具&#34;&gt;必要工具&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;一台装了python的linux机器（我用的debian）&lt;/li&gt;
+&lt;li&gt;签名文件&lt;/li&gt;
+&lt;li&gt;iplay20原版boot.img&lt;/li&gt;
+&lt;li&gt;一台已经root了的其他的设备&lt;/li&gt;
+&lt;li&gt;AVBtool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;必要文件已经上传好了下载链接在下面&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://wwi.lanzouy.com/b07hjo4uh
+密码:8pvt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;生成自己的vbmeta&#34;&gt;生成自己的vbmeta&lt;/h2&gt;
+&lt;p&gt;首先，生成自己的vbmeta，生成vbmeta用到的文件都在keys下了，当然如果需要使用自己的密钥的话可以自己生成。展讯的s9863a以及s9832e vbmeta和boot等镜像修改签名的方法是一样的。生成vbmeta的命令如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python avbtool make_vbmeta_image --key rsa4096_vbmeta.pem --algorithm SHA256_RSA4096 --flag 0 –padding_size 16384 --chain_partition boot:1:keys/hovatek.bin --chain_partition dtbo:10:keys/dtbo.bin --chain_partition recovery:2:keys/recovery.bin --chain_partition socko:11:keys/socko.bin --chain_partition odmko:12:keys/odmko.bin --chain_partition vbmeta_system:3:keys/vbmeta_system.bin --chain_partition vbmeta_vendor:4:keys/vbmeta_vendor.bin --chain_partition l_modem:6:keys/l_modem.bin --chain_partition l_ldsp:7:keys/l_ldsp.bin --chain_partition l_gdsp:8:keys/l_gdsp.bin --chain_partition pm_sys:9:keys/pm_sys.bin --output vbmeta-sign-custom.img
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里说明一下，命令要在linux下和&lt;strong&gt;keys文件夹&lt;/strong&gt;同个目录的地方执行生成，把&lt;strong&gt;AVBtool&lt;/strong&gt;也丢进这个目录。之后会生成一个属于你自己的vbmeta的img文件，名字是vbmeta-sign-custom.img。以上命令参考自酷比论坛的以下命令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python2 avbtool make_vbmeta_image –key rsa4096_vbmeta.pem –algorithm SHA256_RSA4096 –flag 0 –padding_size 16384 \
+–chain_partition boot:1:keys/x_key.bin \
+–chain_partition dtbo:10:keys/key_dtbo.bin \
+–chain_partition recovery:2:keys/key_recovery.bin \
+–chain_partition socko:11:keys/key_socko.bin \
+–chain_partition odmko:12:keys/key_odmko.bin \
+–chain_partition vbmeta_system:3:keys/key_vbmeta_system.bin \
+–chain_partition vbmeta_vendor:4:keys/key_vbmeta_vendor.bin \
+–chain_partition l_modem:6:keys/key_l_modem.bin \
+–chain_partition l_ldsp:7:keys/key_l_ldsp.bin \
+–chain_partition l_gdsp:8:keys/key_l_gdsp.bin \
+–chain_partition pm_sys:9:keys/key_pm_sys.bin \
+–output vbmeta_my.img
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中你要修改的boot.img最后签名跟里面的x_key.bin是对应的。关于bin文件的生成命令如下，如果使用我提供的可以跳过：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python avbtool extract_public_key --key hovatek.pem --output keys/hovatek.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中hovatek.pem为证书文件，你可以替换成你自己的，证书生成自行查阅资料，我用的默认&lt;strong&gt;rsa4096_vbmeta.pem&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;紫光这soc要求vbmeta和boot要用的一样的证书才能过验证，所以很麻烦。&lt;/p&gt;
+&lt;p&gt;到这里为止vbmeta就搞定了，这次生成的vbmeta你可以一直以后都用下去。只要以后每次boot签名的证书和你生成vbmeta用的证书一样的就可以了。&lt;/p&gt;
+&lt;h2 id=&#34;用magisk修补boot&#34;&gt;用magisk修补boot&lt;/h2&gt;
+&lt;p&gt;这里应该可以跳过，用我提供的原版boot.img丢到已经root的设备上用magisk修补boot就行可，一般会生成一个新的修补好的boot.img。&lt;/p&gt;
+&lt;h2 id=&#34;签名修补好的boot&#34;&gt;签名修补好的boot&lt;/h2&gt;
+&lt;p&gt;使用上面生成vbmeta时候用的证书来生成boot，先把magisk修补后生成的文件丢进linux，然后执行以下命令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python avbtool add_hash_footer --image magisk_patched-23016_BohEx.img --partition_name boot --partition_size 36700160 --key rsa4096_vbmeta.pem --algorithm SHA256_RSA4096
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中，magisk_patched-23016_BohEx.img为magisk修补后生成的文件，rsa4096_vbmeta.pem为使用的证书。如果偷懒的话其实以后每次只要把原版boot用magisk修补一下然后丢进linux执行一下上面的命令就可以刷入iplay20上用了。&lt;/p&gt;
+&lt;h2 id=&#34;刷入boot和vbmeta&#34;&gt;刷入boot和vbmeta&lt;/h2&gt;
+&lt;p&gt;这个应该大家都懂，iplay20进fastbootd，电脑执行命令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fastboot --disable-verity --disable-verification flash vbmeta vbmeta_signed.img
+
+fastboot flash boot boot-magisk-20.4-T1011s-20200513.img
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;vbmeta_signed.img和boot-magisk-20.4-T1011s-20200513.img分别为上面生成的vbmeta和已经自己签名好的boot，改一下名字刷入即可。&lt;/p&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
+&lt;p&gt;切记，因为生成的vbmeta和原厂的不一样，所以不能用升级工具的方法刷入自己生成的vbmeta和boot，会卡住的，老老实实用命令行哈。授人以鱼不如授人以渔，大家搞起来。&lt;/p&gt;
+&lt;p&gt;PS：目前安卓12下好像USB有问题，进系统后电脑没法用adb管理iplay20.安卓12的话推荐用LineageOS，phh的aosp总感觉卡了点。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourceforge.net/projects/andyyan-gsi/files/lineage-19.x/&#34;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;找arm64_bvS-vndklite的下就行了，刷入可以开机问题不大，记得先双清。&lt;/p&gt;
+- https://qwerkilo.github.io/posts/najf7wvv8/ - 没有版权，个人随写</description>
+        </item>
+    
+    
+  </channel>
+</rss> 

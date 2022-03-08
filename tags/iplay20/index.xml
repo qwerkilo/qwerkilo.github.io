@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iplay20 on 辣鸡萝莉糖</title>
+    <link>https://qwerkilo.github.io/tags/iplay20/</link>
+    <description>Recent content in iplay20 on 辣鸡萝莉糖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>没有版权，个人随写</copyright>
+    <lastBuildDate>Sun, 06 Mar 2022 15:29:26 +0000</lastBuildDate><atom:link href="https://qwerkilo.github.io/tags/iplay20/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iplay20 magisk 修补boot制作教程</title>
+      <link>https://qwerkilo.github.io/posts/najf7wvv8/</link>
+      <pubDate>Sun, 06 Mar 2022 15:29:26 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/najf7wvv8/</guid>
+      <description>本文参考了h论坛上的帖子
+必要工具  一台装了python的linux机器（我用的debian） 签名文件 iplay20原版boot.img 一台已经root了的其他的设备 AVBtool  必要文件已经上传好了下载链接在下面
+https://wwi.lanzouy.com/b07hjo4uh密码:8pvt 生成自己的vbmeta 首先，生成自己的vbmeta，生成vbmeta用到的文件都在keys下了，当然如果需要使用自己的密钥的话可以自己生成。展讯的s9863a以及s9832e vbmeta和boot等镜像修改签名的方法是一样的。生成vbmeta的命令如下：
+python avbtool make_vbmeta_image --key rsa4096_vbmeta.pem --algorithm SHA256_RSA4096 --flag 0 –padding_size 16384 --chain_partition boot:1:keys/hovatek.bin --chain_partition dtbo:10:keys/dtbo.bin --chain_partition recovery:2:keys/recovery.bin --chain_partition socko:11:keys/socko.bin --chain_partition odmko:12:keys/odmko.bin --chain_partition vbmeta_system:3:keys/vbmeta_system.bin --chain_partition vbmeta_vendor:4:keys/vbmeta_vendor.bin --chain_partition l_modem:6:keys/l_modem.bin --chain_partition l_ldsp:7:keys/l_ldsp.bin --chain_partition l_gdsp:8:keys/l_gdsp.bin --chain_partition pm_sys:9:keys/pm_sys.bin --output vbmeta-sign-custom.img 这里说明一下，命令要在linux下和keys文件夹同个目录的地方执行生成，把AVBtool也丢进这个目录。之后会生成一个属于你自己的vbmeta的img文件，名字是vbmeta-sign-custom.img。以上命令参考自酷比论坛的以下命令：
+python2 avbtool make_vbmeta_image –key rsa4096_vbmeta.pem –algorithm SHA256_RSA4096 –flag 0 –padding_size 16384 \–chain_partition boot:1:keys/x_key.bin \–chain_partition dtbo:10:keys/key_dtbo.bin \–chain_partition recovery:2:keys/key_recovery.</description>
+    </item>
+    
+  </channel>
+</rss>

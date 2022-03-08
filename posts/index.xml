@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 辣鸡萝莉糖</title>
+    <link>https://qwerkilo.github.io/posts/</link>
+    <description>Recent content in Posts on 辣鸡萝莉糖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>没有版权，个人随写</copyright>
+    <lastBuildDate>Mon, 07 Mar 2022 10:35:09 +0000</lastBuildDate><atom:link href="https://qwerkilo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MPC-BE&#43;LAV&#43;MPC VR</title>
+      <link>https://qwerkilo.github.io/posts/qjvlfa6wl/</link>
+      <pubDate>Mon, 07 Mar 2022 10:35:09 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/qjvlfa6wl/</guid>
+      <description> 笑出自信，笑出强大。全套开源，牛逼画质。为什么不用potplayer？你懂的。为什么不用madvr？1050ti啃不动mad，靴靴。
+ MPC-BE download link https://www.free-codecs.com/mpc-be_download.htm LAV download link https://www.free-codecs.com/download/lav_filters.htm MPC VR download link https://www.free-codecs.com/download/mpc_video_renderer.htm </description>
+    </item>
+    
+    <item>
+      <title>关于从utools转用巨硬家powertoys这件事</title>
+      <link>https://qwerkilo.github.io/posts/b16mjeqyf/</link>
+      <pubDate>Sun, 06 Mar 2022 22:50:12 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/b16mjeqyf/</guid>
+      <description>utools用顺手了无敌方便，但是前几天我发现它的资源占用有亿丢丢大，所以开始寻找替代方案。
+ powetoys 阿三入侵巨硬后我就对巨硬一直没啥好感，抱着试一试的心态用了下pt，发现还是挺好用的，我们来康康：
+首先，ptr的快捷键就和utools肥肠相同（手动斜眼）
+旧版的ptr还可以和everything配合，占用也很低，简直无敌：
+目前配合Ditto，quicklook我感觉也顺手得很，在用一段时间观望蛤！
+链接：microsoft/PowerToys: Windows system utilities to maximize productivity (github.com)</description>
+    </item>
+    
+    <item>
+      <title>关于gridea同步经常出问题的解决方法</title>
+      <link>https://qwerkilo.github.io/posts/a_nows7ia/</link>
+      <pubDate>Sun, 06 Mar 2022 19:33:28 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/a_nows7ia/</guid>
+      <description>找到output文件夹 git push过去
+ 站点源文件这个文件夹记得同步到云盘或者其他什么地方，可以在gridea方便异地读取。
+封面来自某40岁偶像🤓
+git搭配SourceTree可方便push噜，烫染，GitHub Desktop是坠吼的。
+教程在此 https://www.bilibili.com/video/BV13W411U7HY</description>
+    </item>
+    
+    <item>
+      <title>iplay20 magisk 修补boot制作教程</title>
+      <link>https://qwerkilo.github.io/posts/najf7wvv8/</link>
+      <pubDate>Sun, 06 Mar 2022 15:29:26 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/najf7wvv8/</guid>
+      <description>本文参考了h论坛上的帖子
+必要工具  一台装了python的linux机器（我用的debian） 签名文件 iplay20原版boot.img 一台已经root了的其他的设备 AVBtool  必要文件已经上传好了下载链接在下面
+https://wwi.lanzouy.com/b07hjo4uh密码:8pvt 生成自己的vbmeta 首先，生成自己的vbmeta，生成vbmeta用到的文件都在keys下了，当然如果需要使用自己的密钥的话可以自己生成。展讯的s9863a以及s9832e vbmeta和boot等镜像修改签名的方法是一样的。生成vbmeta的命令如下：
+python avbtool make_vbmeta_image --key rsa4096_vbmeta.pem --algorithm SHA256_RSA4096 --flag 0 –padding_size 16384 --chain_partition boot:1:keys/hovatek.bin --chain_partition dtbo:10:keys/dtbo.bin --chain_partition recovery:2:keys/recovery.bin --chain_partition socko:11:keys/socko.bin --chain_partition odmko:12:keys/odmko.bin --chain_partition vbmeta_system:3:keys/vbmeta_system.bin --chain_partition vbmeta_vendor:4:keys/vbmeta_vendor.bin --chain_partition l_modem:6:keys/l_modem.bin --chain_partition l_ldsp:7:keys/l_ldsp.bin --chain_partition l_gdsp:8:keys/l_gdsp.bin --chain_partition pm_sys:9:keys/pm_sys.bin --output vbmeta-sign-custom.img 这里说明一下，命令要在linux下和keys文件夹同个目录的地方执行生成，把AVBtool也丢进这个目录。之后会生成一个属于你自己的vbmeta的img文件，名字是vbmeta-sign-custom.img。以上命令参考自酷比论坛的以下命令：
+python2 avbtool make_vbmeta_image –key rsa4096_vbmeta.pem –algorithm SHA256_RSA4096 –flag 0 –padding_size 16384 \–chain_partition boot:1:keys/x_key.bin \–chain_partition dtbo:10:keys/key_dtbo.bin \–chain_partition recovery:2:keys/key_recovery.</description>
+    </item>
+    
+  </channel>
+</rss>
