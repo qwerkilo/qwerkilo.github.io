@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件 on 辣鸡萝莉糖</title>
+    <link>https://qwerkilo.github.io/categories/%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 软件 on 辣鸡萝莉糖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>没有版权，个人随写</copyright>
+    <lastBuildDate>Mon, 07 Mar 2022 10:35:09 +0000</lastBuildDate><atom:link href="https://qwerkilo.github.io/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MPC-BE&#43;LAV&#43;MPC VR</title>
+      <link>https://qwerkilo.github.io/posts/qjvlfa6wl/</link>
+      <pubDate>Mon, 07 Mar 2022 10:35:09 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/qjvlfa6wl/</guid>
+      <description> 笑出自信，笑出强大。全套开源，牛逼画质。为什么不用potplayer？你懂的。为什么不用madvr？1050ti啃不动mad，靴靴。
+ MPC-BE download link https://www.free-codecs.com/mpc-be_download.htm LAV download link https://www.free-codecs.com/download/lav_filters.htm MPC VR download link https://www.free-codecs.com/download/mpc_video_renderer.htm </description>
+    </item>
+    
+    <item>
+      <title>关于从utools转用巨硬家powertoys这件事</title>
+      <link>https://qwerkilo.github.io/posts/b16mjeqyf/</link>
+      <pubDate>Sun, 06 Mar 2022 22:50:12 +0000</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/b16mjeqyf/</guid>
+      <description>utools用顺手了无敌方便，但是前几天我发现它的资源占用有亿丢丢大，所以开始寻找替代方案。
+ powetoys 阿三入侵巨硬后我就对巨硬一直没啥好感，抱着试一试的心态用了下pt，发现还是挺好用的，我们来康康：
+首先，ptr的快捷键就和utools肥肠相同（手动斜眼）
+旧版的ptr还可以和everything配合，占用也很低，简直无敌：
+目前配合Ditto，quicklook我感觉也顺手得很，在用一段时间观望蛤！
+链接：microsoft/PowerToys: Windows system utilities to maximize productivity (github.com)</description>
+    </item>
+    
+  </channel>
+</rss>

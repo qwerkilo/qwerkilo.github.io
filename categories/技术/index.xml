@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gridea on 辣鸡萝莉糖</title>
-    <link>https://qwerkilo.github.io/tags/gridea/</link>
-    <description>Recent content in gridea on 辣鸡萝莉糖</description>
+    <title>技术 on 辣鸡萝莉糖</title>
+    <link>https://qwerkilo.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on 辣鸡萝莉糖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>没有版权，个人随写</copyright>
-    <lastBuildDate>Tue, 08 Mar 2022 19:39:42 +0800</lastBuildDate><atom:link href="https://qwerkilo.github.io/tags/gridea/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Mar 2022 19:39:42 +0800</lastBuildDate><atom:link href="https://qwerkilo.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>转hugo简单过程</title>
       <link>https://qwerkilo.github.io/posts/niguta/</link>

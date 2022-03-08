@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://qwerkilo.github.io/categories/</loc>
+    <lastmod>2022-03-08T19:39:42+08:00</lastmod>
+  </url><url>
     <loc>https://qwerkilo.github.io/tags/gridea/</loc>
     <lastmod>2022-03-08T19:39:42+08:00</lastmod>
   </url><url>
@@ -12,6 +15,9 @@
     <lastmod>2022-03-08T19:39:42+08:00</lastmod>
   </url><url>
     <loc>https://qwerkilo.github.io/tags/</loc>
+    <lastmod>2022-03-08T19:39:42+08:00</lastmod>
+  </url><url>
+    <loc>https://qwerkilo.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2022-03-08T19:39:42+08:00</lastmod>
   </url><url>
     <loc>https://qwerkilo.github.io/posts/niguta/</loc>
@@ -27,6 +33,9 @@
     <lastmod>2022-03-07T10:35:09+00:00</lastmod>
   </url><url>
     <loc>https://qwerkilo.github.io/tags/mpcvr/</loc>
+    <lastmod>2022-03-07T10:35:09+00:00</lastmod>
+  </url><url>
+    <loc>https://qwerkilo.github.io/categories/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-03-07T10:35:09+00:00</lastmod>
   </url><url>
     <loc>https://qwerkilo.github.io/tags/powertoys/</loc>
@@ -50,6 +59,7 @@
     <loc>https://qwerkilo.github.io/tags/magisk/</loc>
     <lastmod>2022-03-06T15:29:26+00:00</lastmod>
   </url><url>
-    <loc>https://qwerkilo.github.io/categories/</loc>
+    <loc>https://qwerkilo.github.io/categories/%E6%89%8B%E6%9C%BA/</loc>
+    <lastmod>2022-03-06T15:29:26+00:00</lastmod>
   </url>
 </urlset>
