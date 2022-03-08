@@ -6,9 +6,117 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>没有版权，个人随写</copyright>
-    <lastBuildDate>Mon, 07 Mar 2022 10:35:09 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Mar 2022 19:39:42 +0800</lastBuildDate>
     
         <atom:link href="https://qwerkilo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>转hugo简单过程</title>
+        <link>https://qwerkilo.github.io/posts/niguta/</link>
+        <pubDate>Tue, 08 Mar 2022 19:39:42 +0800</pubDate>
+        
+        <guid>https://qwerkilo.github.io/posts/niguta/</guid>
+        <description>辣鸡萝莉糖 https://qwerkilo.github.io/posts/niguta/ -&lt;p&gt;把gridea站点目录的md文章都拷出来，以备后续使用。&lt;/p&gt;
+&lt;p&gt;找个地方，用命令创建站点&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site mysite
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;找个主题，我用的diary，简单好看处理也方便。git clone到主题目录，改名字为diary，和diary\exampleSite下的config.toml配置文件的名字保持一致。&lt;/p&gt;
+&lt;p&gt;把exampleSite下所有的文件丢进站点根目录，覆盖。&lt;/p&gt;
+&lt;p&gt;编辑一下配置文件，config.toml&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;baseURL = &amp;#34;http://example.org/&amp;#34;
+DefaultContentLanguage = &amp;#34;zh&amp;#34; # Theme&amp;#39;s display language, supports: en, fr, zh, zh-hant
+languageCode = &amp;#34;zh-cn&amp;#34;
+title = &amp;#34;辣鸡萝莉糖&amp;#34;
+copyright = &amp;#34;没有版权，个人随写&amp;#34;
+theme = &amp;#34;diary&amp;#34;
+# googleAnalytics = &amp;#34;UA-123-45&amp;#34;
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = &amp;#34;&amp;#34;
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = &amp;#34;perldoc&amp;#34;
+    tabWidth = 4
+
+[params]
+subtitle = &amp;#34;一名偶像宅&amp;#34;
+enableGitalk = false
+
+# Twitter Card and Open Graph settings
+enableOpenGraph = false
+enableTwitterCards = false
+title = &amp;#34;My Blog&amp;#34; # will set &amp;#39;og:site_name&amp;#39;
+description = &amp;#34;My HomePage Description&amp;#34;  # will set &amp;#39;og:description&amp;#39;
+
+[params.gitalk]
+  owner = &amp;#34;&amp;#34;
+  repo = &amp;#34;&amp;#34;
+  client_id = &amp;#34;&amp;#34;
+  client_secret = &amp;#34;&amp;#34;
+[taxonomies]
+   tag = &amp;#34;tags&amp;#34;
+   category = &amp;#34;categories&amp;#34;
+
+[params.utterances]
+repo=&amp;#34;your repo&amp;#34;
+term=&amp;#34;[ENTER TERM HERE]&amp;#34;
+label=&amp;#34;your label&amp;#34;
+theme=&amp;#34;github-light&amp;#34;
+
+[[menu.main]]
+url = &amp;#34;/categories&amp;#34;
+name = &amp;#34;目录&amp;#34;
+weight = 2
+[[menu.main]]
+url = &amp;#34;/tags&amp;#34;
+name = &amp;#34;标签&amp;#34;
+weight = 3
+[[menu.main]]
+url = &amp;#34;/posts&amp;#34;
+name = &amp;#34;文章&amp;#34;
+weight = 1
+[[menu.main]]
+url = &amp;#34;/index.xml&amp;#34;
+name = &amp;#34;RSS订阅&amp;#34;
+weight = 4
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;走起，用下面命令跑起来（在根目录下执行）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t diary --buildDrafts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把之前备份好的md文件直接丢进content\posts&lt;/p&gt;
+&lt;p&gt;确认无误后使用下面命令生成上传的目录&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;关联你的Github：输入hugo --theme=主题名称 --baseUrl=&amp;#34;https://xxx.github.io&amp;#34;(xxx表示你的github..) --buildDrafts
+按回车键后发现根目录下多出一个public的文件夹；
+hugo -t diary --baseUrl=&amp;#34;https://你的github名字.github.io&amp;#34; --buildDrafts
+
+按回车键后发现根目录下多出一个public的文件夹；
+②：输入cd public切换到public目录下编辑：
+一行一行输入
+
+git add .
+git commit -m &amp;#34;简介&amp;#34;
+git remote add origin https://github.com/xxx/xxx.github.io.git 
+git push origin master
+如果第二次上传需要修改的内容：
+在执行git push -u origin master之前先执行git pull origin master
+**最后访问xxxxx.github.io这个网站，便是你的博客。至此静态博客Hugo完成。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个主题的md文件YAML设置如下&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;title: &amp;#39;iplay20 magisk 修补boot制作教程&amp;#39; #标题
+date: 2022-03-06 15:29:26   #日期
+tags: [iplay20,magisk]  #tags
+published: true
+hideInList: false
+featured_image: https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203061537261.jpg #背景图
+isTop: false
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;效果如下图，就大家看到的效果，还是挺方便的，找个云盘同步一下，或者直接git都可以，美滋滋。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/qwerkilo/Image/202203081950055.png&#34; alt=&#34;image-20220308195032260&#34;&gt;&lt;/p&gt;
+&lt;p&gt;具体配置文件还有啥参数可以到原主题的页面康，有说明。&lt;/p&gt;
+- https://qwerkilo.github.io/posts/niguta/ - 没有版权，个人随写</description>
+        </item>
     
     
     

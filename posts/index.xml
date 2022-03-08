@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>没有版权，个人随写</copyright>
-    <lastBuildDate>Mon, 07 Mar 2022 10:35:09 +0000</lastBuildDate><atom:link href="https://qwerkilo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Mar 2022 19:39:42 +0800</lastBuildDate><atom:link href="https://qwerkilo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>转hugo简单过程</title>
+      <link>https://qwerkilo.github.io/posts/niguta/</link>
+      <pubDate>Tue, 08 Mar 2022 19:39:42 +0800</pubDate>
+      
+      <guid>https://qwerkilo.github.io/posts/niguta/</guid>
+      <description>把gridea站点目录的md文章都拷出来，以备后续使用。
+找个地方，用命令创建站点
+hugo new site mysite 找个主题，我用的diary，简单好看处理也方便。git clone到主题目录，改名字为diary，和diary\exampleSite下的config.toml配置文件的名字保持一致。
+把exampleSite下所有的文件丢进站点根目录，覆盖。
+编辑一下配置文件，config.toml
+baseURL = &amp;#34;http://example.org/&amp;#34; DefaultContentLanguage = &amp;#34;zh&amp;#34; # Theme&amp;#39;s display language, supports: en, fr, zh, zh-hant languageCode = &amp;#34;zh-cn&amp;#34; title = &amp;#34;辣鸡萝莉糖&amp;#34; copyright = &amp;#34;没有版权，个人随写&amp;#34; theme = &amp;#34;diary&amp;#34; # googleAnalytics = &amp;#34;UA-123-45&amp;#34; [markup] [markup.highlight] codeFences = true guessSyntax = false hl_Lines = &amp;#34;&amp;#34; lineNoStart = 1 lineNos = false lineNumbersInTable = true noClasses = true style = &amp;#34;perldoc&amp;#34; tabWidth = 4 [params] subtitle = &amp;#34;一名偶像宅&amp;#34; enableGitalk = false # Twitter Card and Open Graph settings enableOpenGraph = false enableTwitterCards = false title = &amp;#34;My Blog&amp;#34; # will set &amp;#39;og:site_name&amp;#39; description = &amp;#34;My HomePage Description&amp;#34; # will set &amp;#39;og:description&amp;#39; [params.</description>
+    </item>
+    
     <item>
       <title>MPC-BE&#43;LAV&#43;MPC VR</title>
       <link>https://qwerkilo.github.io/posts/qjvlfa6wl/</link>
